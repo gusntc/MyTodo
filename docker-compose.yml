@@ -34,7 +34,7 @@ services:
     image: gusntc/preflight-frontend:latest
     container_name: pf-frontend
     ports:
-      - ${NGINX_PORT}:5173
+      - ${NGINX_PORT}:5177
     networks:
       - g13-app-network
     environment:

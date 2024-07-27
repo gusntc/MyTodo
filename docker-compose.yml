@@ -2,6 +2,7 @@ name: preflight-g13
 services:
   postgres:
     image: postgres:16-alpine
+    platform: linux/amd64
     container_name: g13-database
     ports:
       - ${POSTGRES_PORT}:5432
@@ -16,7 +17,7 @@ services:
   backend:
     depends_on:
       - postgres
-    image: gusntc/preflight-backend:latest
+    image: gusntc/preflight-backend:linux
     container_name: g13-backend
     ports:
       - ${PORT}:3000
@@ -31,7 +32,7 @@ services:
   frontend:
     depends_on:
       - backend
-    image: gusntc/preflight-frontend:latest
+    image: gusntc/preflight-frontend:linux
     container_name: g13-frontend
     ports:
       - ${NGINX_PORT}:5177
